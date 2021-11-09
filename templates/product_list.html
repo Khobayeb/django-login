@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%block title_block %}Product List{% endblock %}
+{% block body_block %}
+
+
+<a  class="btn btn-sm btn-primary catbut" href="{% url 'add_product'%}">Add Product</a>
+
+
+ 
+  <div class="pt-5 tabled">
+   <table class="table table-image">
+    <thead class="table-dark m-2" >
+     <th>Product</th>
+     <th colspan="3">Image</th>
+     
+    
+    {% for d in data %}
+    <tbody >
+      
+    <td>{{d.title}}</td>
+    <td class="w-25"><img src="{{d.image.url}}" class="img-fluid img-thumbnail" alt="" width="40%" height="15%"></td>
+    <td><a class="btn btn-sm btn-warning" href="{% url 'update_product' pk=d.pk %}">Update</a></td>
+    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_product' pk=d.pk %}">Delete</a></td>
+  
+    </tbody  >
+    {% endfor %}
+   
+  </table>
+
+</div>
+
+
+{% endblock %}

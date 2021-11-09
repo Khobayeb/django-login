@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{%block title_block %}Add Subcategory{% endblock %}
+{% block body_block %}
+
+
+<h3 class=" aucategory category ">Add Subcategory</h3>
+
+
+<form  method="POST">
+  {% csrf_token %}
+  <div class="inp">
+    <label>Category:</label>
+       {{form.category}}
+  </div>
+  
+  <div class="inp" >
+    <label >Subcategory</label>
+    {{form.name}}
+  </div>
+  <div class="inp" >
+    <label >Slug</label>
+    {{form.slug}}
+  </div>
+  <input class="btn btn-success btn-sm" type="submit" value="Add"">
+</form>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{%block title_block %}Add Product{% endblock %}
+{% load widget_tweaks %}
+{% block body_block %}
+
+
+<h3 class="pb-5">Add Product</h3>
+
+  <form  method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+  
+   
+  <div class="inp">
+    <label>Category:</label>
+       {{form.category}}
+  </div>
+  
+    <div class="inp">
+      <label >Subcategory:</label>
+      {{form.subcategory}}
+  </div>
+  
+   <div class="inp" >
+    <label >Title</label>
+    {{form.title}}
+  </div>
+  
+  <div style="width: 600px; padding-bottom: 14px;"  class="inpf" >
+    <label >Description</label>
+  {{ form.description|add_class:"ckeditor"  }}
+  </div>
+  
+  <div  class="inp" >
+    <label >Price</label>
+   {{ form.price }}
+  </div>
+  
+  <div  class="inp" >
+    <label >Old Price</label>
+   {{ form.old_price }}
+  </div>
+  
+  <div class="inp" >
+    <label >Stock</label>
+   {{ form.stock }}
+  </div>
+  
+  <div class="inp">
+    <label >Image:</label>
+  {{ form.image }}
+  </div>
+  
+  <div class="inp" >
+    <label >Slug</label>
+   {{ form.slug }}
+  </div>
+  
+  <div class="inp" >
+    
+   {{ form.active }}
+   <label >Active</label>
+  </div>
+  
+    <div >
+        <input type="submit"  class="btn btn-sm btn-success" value="Add"/>
+    </div>
+  </form>
+  
+{% endblock %}
